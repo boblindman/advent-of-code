@@ -1,3 +1,6 @@
+import os.path
+scriptdir = os.path.dirname(os.path.abspath(__file__))
+
 # Grab the input file
 inputFile = "Day2-AdventOfCode-Input.txt"
 win = 6
@@ -30,7 +33,7 @@ handType = {
 }
 
 # Using readlines()
-file1 = open(inputFile, 'r')
+file1 = open(os.path.join(scriptdir, inputFile), 'r')
 Lines = file1.readlines()
 
 totalPoints = 0
