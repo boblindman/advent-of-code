@@ -7,7 +7,7 @@ scriptdir = os.path.dirname(os.path.abspath(__file__))
 inputFile = "Day03-input.txt"
 
 # Set to true when ready to submit the answer
-myPart = "a" # "a" or "b"
+myPart = "b" # "a" or "b"
 myYear = 2022
 myDay = 3
 imReady = False
@@ -24,14 +24,15 @@ if __name__ == "__main__":
     myAnswer = 0
     file1 = open(os.path.join(scriptdir, inputFile), 'r')
     Lines = file1.readlines()
-    for line in Lines:
-        myData = line.strip()
-        sack1 = myData[:len(myData)//2]
-        sack2 = myData[len(myData)//2:]
+    for i in range(0, len(Lines), 3):
+        myData1 = Lines[i].strip()
+        myData2 = Lines[i+1].strip()
+        myData3 = Lines[i+2].strip()
+        i += 2
 
-        commonItems = ''.join(set(sack1).intersection(sack2))
+        commonItems = ''.join(set(myData1).intersection(myData2).intersection(myData3))
         myAnswer += valueOfItem(commonItems)
-        print("{} {} :: {} - {}".format(commonItems, valueOfItem(commonItems), sack1, sack2))
+        print("{} {}".format(commonItems, valueOfItem(commonItems)))
 
     print(myAnswer)
 
