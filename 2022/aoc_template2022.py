@@ -22,7 +22,7 @@ if __name__ == "__main__":
         myData = line.strip()
         print("{}".format(myData))
 
-    print(myAnswer)
+    print("My answer = {}".format(myAnswer))
 
     if imReady:
         print("\nSubmitting {}, Day {} {} Part {}".format(scriptName,myDay,myYear,myPart))
