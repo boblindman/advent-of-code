@@ -9,9 +9,10 @@ scriptName = os.path.basename(__file__)
 # Set to true when ready to submit the answer
 myPart = "a" # "a" or "b"
 myYear = 2022
-myDay = 0
+myDay = 6
 imReady = True and False #comment out False to submit
 inputFile = "Day{:02d}-input.txt".format(myDay)
+#inputFile = "Day{:02d}-test.txt".format(myDay)
 
 if __name__ == "__main__":
     print("Running {}, Day {} {} Part {}\n".format(scriptName,myDay,myYear,myPart))
@@ -20,7 +21,12 @@ if __name__ == "__main__":
     Lines = file1.readlines()
     for line in Lines:
         myData = line.strip()
-        print("{}".format(myData))
+        #print("{}".format(myData))
+        for i in range(4,len(myData)):
+            mySet = set(myData[(i-4):i])
+            if len(mySet) == 4:
+                myAnswer = i
+                break
 
     print("My answer = {}".format(myAnswer))
 
