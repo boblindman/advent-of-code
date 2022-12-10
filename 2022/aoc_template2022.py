@@ -8,6 +8,8 @@ scriptName = os.path.basename(__file__)
 
 # Set to true when ready to submit the answer
 myPart = "a" # "a" or "b"
+if scriptName[-5:-3] == "-B":
+    myPart = "b"
 myYear = 2022
 myDay = 0
 imReady = True and False #comment out False to submit
