@@ -14,7 +14,7 @@ myYear = 2022
 myDay = 7
 imReady = True and False #comment out False to submit
 inputFile = "Day{:02d}-input.txt".format(myDay)
-inputFile = "Day{:02d}-test.txt".format(myDay)
+#inputFile = "Day{:02d}-test.txt".format(myDay)
 
 def upDir(theDir):
     # Find the last /
@@ -51,6 +51,15 @@ def getDirSize(myDir,myDict):
                 mySizeDict[myDir] = value
     return mySizeDict
 
+def addSubdirectories(mySizeDict):
+    for key in mySizeDict:
+        for key2 in mySizeDict:
+            if key != key2:
+                if key2[:len(key)] == key:
+                    mySizeDict[key] = mySizeDict[key] + mySizeDict[key2]
+    return mySizeDict
+
+
 filesInDir = {"/" : "dir"}
 currentDir = "/"
 if __name__ == "__main__":
@@ -86,7 +95,7 @@ if __name__ == "__main__":
                     break
         else:
             i += 1
-        if currentDir not in filesInDir:
+        if currentDir not in filesInDir and len(currentDir) > 0:
             filesInDir[currentDir] = "dir"
     print(filesInDir)
 
@@ -96,6 +105,12 @@ if __name__ == "__main__":
     print(listOfDirs)
     sizeOfDirs = getDirSize("",filesInDir)
     print(sizeOfDirs)
+    totalSizeOfDirs = addSubdirectories(sizeOfDirs)
+    print(totalSizeOfDirs)
+
+    for key in totalSizeOfDirs:
+        if totalSizeOfDirs[key] < 100000:
+            myAnswer += totalSizeOfDirs[key]
 
     print("My answer = {}".format(myAnswer))
 
