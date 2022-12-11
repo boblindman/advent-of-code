@@ -14,6 +14,7 @@ myYear = 2022
 myDay = 0
 imReady = True and False #comment out False to submit
 inputFile = "Day{:02d}-input.txt".format(myDay)
+inputFile = "Day{:02d}-test.txt".format(myDay)
 
 if __name__ == "__main__":
     print("Running {}, Day {} {} Part {}\n".format(scriptName,myDay,myYear,myPart))
